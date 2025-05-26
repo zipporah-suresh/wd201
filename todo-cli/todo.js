@@ -21,11 +21,11 @@ const todoList = () => {
 
   const toDisplayableList = (list) => {
     return list
-      .map(
-        (todo) =>
-          `${todo.completed ? "[x]" : "[ ]"} ${todo.title} ${todo.dueDate == today ? "" : todo.dueDate
-          }`
-      )
+      .map((todo) => {
+        const checkbox = todo.completed ? "[x]" : "[ ]";
+        const displayDate = todo.dueDate == today ? "" : ` ${todo.dueDate}`;
+        return `${checkbox} ${todo.title}${displayDate}`;
+      })
       .join("\n");
   };
 
